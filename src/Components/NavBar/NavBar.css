@@ -1,9 +1,8 @@
 body {
-  background-color: #b5afca33;
+  background: linear-gradient(#0c8dd3, black);
   margin: 0;
   font-family: "Arial", sans-serif;
 }
-
 .nav-bar {
   position: fixed;
   top: 0;
