@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.webp";
 import ButtonComponent from "../ButtonComponent/Button";
 import "./Navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,11 +17,7 @@ const Navbar = () => {
   };
 
   const handleScroll = () => {
-    if (window.scrollY > 10) {
-      setScrolling(true);
-    } else {
-      setScrolling(false);
-    }
+    setScrolling(window.scrollY > 10);
   };
 
   useEffect(() => {
@@ -33,7 +31,14 @@ const Navbar = () => {
     <nav className={`nav-bar ${scrolling ? "scrolled" : ""}`}>
       <div className="logo">
         <a href="#Home" onClick={(e) => handleLinkClick(e, "#Home")}>
-          <img src={logo} alt="Seedfi Logo" />
+          <img
+            src={logo}
+            alt="Ajayi Crowther University Department of Architecture"
+          />
+          <p>
+            Ajayi Crowther University <br />
+            Department Of Architecture
+          </p>
         </a>
       </div>
       <div className={`nav-links ${isMenuOpen ? "open" : ""}`}>
@@ -51,7 +56,7 @@ const Navbar = () => {
         </a>
         <div className="button-container">
           <ButtonComponent
-            backgroundColor="#201e50"
+            backgroundColor="var(--primary-color)"
             fontSize="16px"
             borderRadius="8px"
             color="white"
@@ -70,10 +75,11 @@ const Navbar = () => {
       <div
         className="hamburger-menu"
         onClick={() => setIsMenuOpen((prev) => !prev)}
+        aria-label="Toggle navigation menu"
+        role="button"
+        tabIndex={0}
       >
-        <span className="line"></span>
-        <span className="line"></span>
-        <span className="line"></span>
+        <FontAwesomeIcon icon={faBars} />
       </div>
     </nav>
   );

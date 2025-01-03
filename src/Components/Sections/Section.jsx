@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import "./Section.css";
-import background from "../../assets/modern-office-architecture.webp";
+import background from "../../assets/background.webp";
+import hod from "../../assets/hod.webp";
 import ButtonComponent from "../ButtonComponent/Button";
 import { motion, useInView } from "framer-motion";
 import ArchitecturalDesign from "../../assets/house-design-example.webp";
@@ -89,7 +90,7 @@ const Section = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Modern Architectural Designs
+              Department Of Architecture
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, x: 100 }}
@@ -135,6 +136,14 @@ const Section = () => {
         style={{ backgroundImage: `url(${about})` }}
       >
         <h2>About Us</h2>
+        <div className="profile-pic">
+          <img src={hod} alt="HOD" />
+          <div className="hod-title">
+            Mrs. Godwin Oluwaseun
+            <br />
+            H.O.D Department Of Architecture
+          </div>
+        </div>
         <p>
           Our team of architects and designers is dedicated to creating
           innovative and sustainable spaces that inspire and transform. We
